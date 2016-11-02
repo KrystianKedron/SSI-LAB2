@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>LAB2 KRYSTIAN KEDRON</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="webjars/jquery/1.11.1/jquery.js"></script>
+    <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"></link>
+    <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="center-block" style="text-align: center; width:180px; margin-left: 40%; margin-top: 5%">
+        <h1>Form</h1>
+    <form style="margin-top: 10%" action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
+    	<p>Imie: <input type="text" th:field="*{imie}" /></p>
+        <p>Nazwisko: <input type="text" th:field="*{nazwisko}" /></p>
+        <p>Adres e-mail: <input type="text" th:field="*{mail}" /></p>
+        <p>Wiadomosc: <input type="text" th:field="*{wiadomosc}" /></p>
+        <p><input type="submit" value="Zawtwierdz" /> <input type="reset" value="Resetuj" /></p>
+    </form>
+    </div>
+</body>
+</html>

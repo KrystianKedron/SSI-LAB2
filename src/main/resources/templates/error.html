@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>LAB2 KRYSTIAN KEDRON</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <script src="webjars/jquery/1.11.1/jquery.js"></script>
+    <script >
+    $(function() {
+        var values = ['#imie',"#nazwisko","#mail","#wiadomosc"];
+        var label = '';
+
+        for (var i = 0; values.length; i++)
+        {
+            var val = $(values[i]).val();
+            var iserror = val.split(';')[0];
+            var message = val.split(';')[1];
+            if (iserror == 'error') {
+                $(values[i]).val('');
+                $(values[i]).css('border-color', 'red');
+                label = values[i] + 'Label';
+                $(label).text(message);
+            }
+        }
+    });
+    </script>
+    <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"></link>
+    <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="center-block" style="text-align: center; width:180px; margin-left: 40%; margin-top: 5%">
+    <h1>Form</h1>
+    <form style="margin-top: 5%" action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
+        <p>Imie: <input id="imie" type="text" th:field="*{imie}" /></p>
+        <label id="imieLabel" style="color: red" class="form-control-label"></label>
+        <p>Nazwisko: <input id="nazwisko" type="text" th:field="*{nazwisko}" /></p>
+        <label id="nazwiskoLabel" style="color: red" class="form-control-label"></label>
+        <p>Adres e-mail: <input id="mail" type="text" th:field="*{mail}" /></p>
+        <label id="mailLabel" style="color: red" class="form-control-label"></label>
+        <p>Wiadomosc: <input id="wiadomosc" type="text" th:field="*{wiadomosc}" /></p>
+        <label id="wiadomoscLabel" style="color: red" class="form-control-label"></label>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</div>
+</body>
+</html>
